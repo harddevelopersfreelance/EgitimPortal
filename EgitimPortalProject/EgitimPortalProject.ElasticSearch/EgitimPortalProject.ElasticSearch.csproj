@@ -8,4 +8,10 @@
     <ProjectReference Include="..\EgitimPortalProject.Business\EgitimPortalProject.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Abstract\" />
+    <Folder Include="Configurations\" />
+    <Folder Include="Conrete\" />
+  </ItemGroup>
+
 </Project>

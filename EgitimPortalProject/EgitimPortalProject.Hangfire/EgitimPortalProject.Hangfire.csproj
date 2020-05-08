@@ -8,4 +8,12 @@
     <ProjectReference Include="..\EgitimPortalProject.Business\EgitimPortalProject.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Managers\ContinuationJobs\" />
+    <Folder Include="Managers\DelayedJobs\" />
+    <Folder Include="Managers\FireAndForgetJobs\" />
+    <Folder Include="Managers\RecurringJobs\" />
+    <Folder Include="Schedules\" />
+  </ItemGroup>
+
 </Project>

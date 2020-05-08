@@ -8,4 +8,9 @@
     <ProjectReference Include="..\EgitimPortalProject.Core\EgitimPortalProject.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ComlexTypes\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
