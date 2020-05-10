@@ -1,0 +1,49 @@
+﻿using EgitimPortalProject.Core.Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
+namespace EgitimPortalProject.DataAccess.Concrete.EntityFramework.DatabaseContext
+{
+    public class EgitimPortalDbContext : DbContext
+    {
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(@"Server=.;Database=EgitimPortalTest;Trusted_Connection=True;");
+            }
+        }
+
+         public virtual DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+        public virtual DbSet<OperationClaim> OperationClaims { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<User>().ToTable("User").HasKey(u=> u.UserId);
+            modelBuilder.Entity<OperationClaim>().ToTable("OperationClaim").HasKey(op=> op.OperationClaimId);
+            //modelBuilder.Entity<UserOperationClaim>().ToTable("UserOperationClaim").HasNoKey();
+
+
+            modelBuilder.Entity<UserOperationClaim>()
+                .ToTable("UserOperationClaim")
+                .HasKey(c => c.UserOperationClaimId);
+
+            modelBuilder.Entity<UserOperationClaim>()
+                .HasOne<User>(sc => sc.User)
+                .WithMany(s => s.UserOperationClaims)
+                .HasForeignKey(sc => sc.UserId);
+
+
+            modelBuilder.Entity<UserOperationClaim>()
+                .HasOne<OperationClaim>(sc => sc.OperationClaim)
+                .WithMany(s => s.UserOperationClaims)
+                .HasForeignKey(sc => sc.OperationClaimId);
+        }
+
+
+
+    }
+}
