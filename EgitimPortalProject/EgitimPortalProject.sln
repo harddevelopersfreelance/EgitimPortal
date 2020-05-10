@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.Hangfir
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.RepoDB", "EgitimPortalProject.RepoDB\EgitimPortalProject.RepoDB.csproj", "{D61AD1B0-4778-4932-B300-DA624E5AC9AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.RabbitMQ", "EgitimPortalProject.RabbitMQ\EgitimPortalProject.RabbitMQ.csproj", "{37EA10E8-18B6-4BDF-9F5D-72B90DB9DD6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{D61AD1B0-4778-4932-B300-DA624E5AC9AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D61AD1B0-4778-4932-B300-DA624E5AC9AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D61AD1B0-4778-4932-B300-DA624E5AC9AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37EA10E8-18B6-4BDF-9F5D-72B90DB9DD6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37EA10E8-18B6-4BDF-9F5D-72B90DB9DD6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37EA10E8-18B6-4BDF-9F5D-72B90DB9DD6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37EA10E8-18B6-4BDF-9F5D-72B90DB9DD6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
