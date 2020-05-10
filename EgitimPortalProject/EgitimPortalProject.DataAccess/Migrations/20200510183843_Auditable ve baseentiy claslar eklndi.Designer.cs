@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EgitimPortalProject.DataAccess.Migrations
 {
     [DbContext(typeof(EgitimPortalDbContext))]
-    [Migration("20200510124715_JwtIcin-IlkMigrationDenemesi")]
-    partial class JwtIcinIlkMigrationDenemesi
+    [Migration("20200510183843_Auditable ve baseentiy claslar eklndi")]
+    partial class Auditablevebaseentiyclaslareklndi
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,18 +23,31 @@ namespace EgitimPortalProject.DataAccess.Migrations
 
             modelBuilder.Entity("EgitimPortalProject.Core.Entities.Concrete.OperationClaim", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+                    b.Property<int>("OperationClaimId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
+                    b.Property<string>("OperationClaimName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("OperationClaimId");
 
                     b.ToTable("OperationClaim");
                 });
 
             modelBuilder.Entity("EgitimPortalProject.Core.Entities.Concrete.User", b =>
                 {
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AddedByUser")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<DateTime>("AddedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedDate")
@@ -46,8 +59,17 @@ namespace EgitimPortalProject.DataAccess.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModifiedByUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<byte[]>("PasswordHash")
                         .HasColumnType("varbinary(max)");
@@ -58,16 +80,17 @@ namespace EgitimPortalProject.DataAccess.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.HasKey("UserId");
 
                     b.ToTable("User");
                 });
 
             modelBuilder.Entity("EgitimPortalProject.Core.Entities.Concrete.UserOperationClaim", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+                    b.Property<int>("UserOperationClaimId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("OperationClaimId")
                         .HasColumnType("int");
@@ -75,7 +98,28 @@ namespace EgitimPortalProject.DataAccess.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+                    b.HasKey("UserOperationClaimId");
+
+                    b.HasIndex("OperationClaimId");
+
+                    b.HasIndex("UserId");
+
                     b.ToTable("UserOperationClaim");
+                });
+
+            modelBuilder.Entity("EgitimPortalProject.Core.Entities.Concrete.UserOperationClaim", b =>
+                {
+                    b.HasOne("EgitimPortalProject.Core.Entities.Concrete.OperationClaim", "OperationClaim")
+                        .WithMany("UserOperationClaims")
+                        .HasForeignKey("OperationClaimId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EgitimPortalProject.Core.Entities.Concrete.User", "User")
+                        .WithMany("UserOperationClaims")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

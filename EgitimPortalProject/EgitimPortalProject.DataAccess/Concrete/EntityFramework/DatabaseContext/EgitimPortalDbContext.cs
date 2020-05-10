@@ -22,9 +22,25 @@ namespace EgitimPortalProject.DataAccess.Concrete.EntityFramework.DatabaseContex
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User>().ToTable("User").HasNoKey();
-            modelBuilder.Entity<OperationClaim>().ToTable("OperationClaim").HasNoKey();
-            modelBuilder.Entity<UserOperationClaim>().ToTable("UserOperationClaim").HasNoKey();
+            modelBuilder.Entity<User>().ToTable("User").HasKey(u=> u.UserId);
+            modelBuilder.Entity<OperationClaim>().ToTable("OperationClaim").HasKey(op=> op.OperationClaimId);
+            //modelBuilder.Entity<UserOperationClaim>().ToTable("UserOperationClaim").HasNoKey();
+
+
+            modelBuilder.Entity<UserOperationClaim>()
+                .ToTable("UserOperationClaim")
+                .HasKey(c => c.UserOperationClaimId);
+
+            modelBuilder.Entity<UserOperationClaim>()
+                .HasOne<User>(sc => sc.User)
+                .WithMany(s => s.UserOperationClaims)
+                .HasForeignKey(sc => sc.UserId);
+
+
+            modelBuilder.Entity<UserOperationClaim>()
+                .HasOne<OperationClaim>(sc => sc.OperationClaim)
+                .WithMany(s => s.UserOperationClaims)
+                .HasForeignKey(sc => sc.OperationClaimId);
         }
 
 
