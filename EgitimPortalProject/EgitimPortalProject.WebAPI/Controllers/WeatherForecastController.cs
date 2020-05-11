@@ -6,9 +6,10 @@ using System.Linq;
 
 namespace EgitimPortalProject.WebAPI.Controllers
 {
+    
+    [Route("api/[controller]")]
+    [Produces("application/json")]
     [ApiController]
-    [Route("[controller]")]
-
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -24,6 +25,8 @@ namespace EgitimPortalProject.WebAPI.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
