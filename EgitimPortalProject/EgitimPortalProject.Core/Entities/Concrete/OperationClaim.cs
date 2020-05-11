@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using TokenProject.Core.Entities;
+﻿using EgitimPortalProject.Core.Entities.Abstract;
+using System.Collections.Generic;
 
 namespace EgitimPortalProject.Core.Entities.Concrete
 {
@@ -12,7 +12,6 @@ namespace EgitimPortalProject.Core.Entities.Concrete
 
         public int OperationClaimId { get; set; }
         public string OperationClaimName { get; set; }
-
 
         public virtual ICollection<UserOperationClaim> UserOperationClaims { get; set; }
     }

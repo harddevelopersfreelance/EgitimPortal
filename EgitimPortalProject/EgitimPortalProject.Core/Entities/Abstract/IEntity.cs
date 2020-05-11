@@ -1,8 +1,6 @@
-﻿namespace TokenProject.Core.Entities
+﻿namespace EgitimPortalProject.Core.Entities.Abstract
 {
     public interface IEntity
     {
-        
-
     }
 }
