@@ -9,7 +9,7 @@ namespace EgitimPortalProject.Core.Entities.Concrete
     {
         public User()
         {
-            UserOperationClaims = new HashSet<UserOperationClaim>();
+            UserRoles = new HashSet<UserRole>();
         }
 
         public int UserId { get; set; }
@@ -20,6 +20,6 @@ namespace EgitimPortalProject.Core.Entities.Concrete
         public byte[] PasswordHash { get; set; }
         public bool Status { get; set; }
         public DateTime? DeletedDate { get; set; }
-        public virtual ICollection<UserOperationClaim> UserOperationClaims { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

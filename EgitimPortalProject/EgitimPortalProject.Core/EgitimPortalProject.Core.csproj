@@ -1,11 +1,34 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Aspectd\Autofac\Caching\" />
+    <Folder Include="Aspectd\Autofac\Exception\" />
+    <Folder Include="Aspectd\Autofac\Logging\" />
+    <Folder Include="Aspectd\Autofac\Validation\" />
+    <Folder Include="Aspectd\Autofac\Transaction\" />
+    <Folder Include="Aspectd\Autofac\Performance\" />
+    <Folder Include="CrossCuttingConcerns\Caching\Microsoft\" />
+    <Folder Include="CrossCuttingConcerns\Caching\Redis\" />
+    <Folder Include="CrossCuttingConcerns\Logging\Log4Net\" />
+    <Folder Include="CrossCuttingConcerns\Logging\NLog\" />
+    <Folder Include="CrossCuttingConcerns\Validation\" />
+    <Folder Include="DependencyResolvers\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Utilities\Interceptors\" />
+    <Folder Include="Utilities\ResultObjectTypes\Abstract\" />
+    <Folder Include="Utilities\ResultObjectTypes\Concrete\" />
+    <Folder Include="Utilities\Security\Encyption\" />
+    <Folder Include="Utilities\Security\Hashing\" />
+    <Folder Include="Utilities\Security\Jwt\" />
   </ItemGroup>
 
 </Project>

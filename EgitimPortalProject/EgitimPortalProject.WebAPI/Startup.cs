@@ -1,3 +1,6 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using EgitimPortalProject.Business.DependencyResolvers.Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +21,8 @@ namespace EgitimPortalProject.WebAPI
         }
 
         public IConfiguration Configuration { get; }
+       
+        
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -51,6 +56,9 @@ namespace EgitimPortalProject.WebAPI
                 options.IncludeXmlComments(xmlPath);
             });
             #endregion
+
+           
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,8 +68,7 @@ namespace EgitimPortalProject.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
-           
+          
 
             #region swagger
             app.UseSwagger();
