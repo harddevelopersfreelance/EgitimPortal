@@ -4,14 +4,16 @@ using EgitimPortalProject.DataAccess.Concrete.EntityFramework.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EgitimPortalProject.DataAccess.Migrations
 {
     [DbContext(typeof(EgitimPortalDbContext))]
-    partial class EgitimPortalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200513210924_jwt_tablo_init")]
+    partial class jwt_tablo_init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
