@@ -13,9 +13,9 @@ namespace EgitimPortalProject.DataAccess.Concrete.EntityFramework.DatabaseContex
             }
         }
 
-        public virtual DbSet<UserRole> UserOperationClaims { get; set; }
-        public virtual DbSet<Role> OperationClaims { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
