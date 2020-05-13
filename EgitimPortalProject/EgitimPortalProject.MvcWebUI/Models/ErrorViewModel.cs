@@ -1,5 +1,3 @@
-using System;
-
 namespace EgitimPortalProject.MvcWebUI.Models
 {
     public class ErrorViewModel
