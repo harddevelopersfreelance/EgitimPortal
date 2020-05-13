@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace EgitimPortalProject.WebAPI.Controllers
 {
+    
+    [Route("api/[controller]")]
+    [Produces("application/json")]
     [ApiController]
-    [Route("[controller]")]
-
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -25,6 +25,8 @@ namespace EgitimPortalProject.WebAPI.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
