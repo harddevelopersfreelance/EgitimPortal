@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EgitimPortalProject.DataAccess\EgitimPortalProject.DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstract\Helpers\" />
+    <Folder Include="Concrete\HelperManagers\" />
+    <Folder Include="Concrete\Managers\" />
+    <Folder Include="Consts\" />
+  </ItemGroup>
+
+</Project>
