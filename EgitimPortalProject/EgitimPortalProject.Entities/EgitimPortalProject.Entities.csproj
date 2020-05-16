@@ -8,4 +8,8 @@
     <ProjectReference Include="..\EgitimPortalProject.Core\EgitimPortalProject.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Entities\Concrete\" />
+  </ItemGroup>
+
 </Project>
