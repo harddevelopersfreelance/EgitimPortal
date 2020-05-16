@@ -16,9 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
     <Folder Include="BusinessOperationAspects\Autofac\" />
-    <Folder Include="Concrete\EntityManagers\" />
     <Folder Include="Concrete\ExtractManagers\" />
   </ItemGroup>
 
