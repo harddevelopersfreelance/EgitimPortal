@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using EgitimPortalProject.Business.DependencyResolvers.Autofac;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using System.IO;
 
 namespace EgitimPortalProject.WebAPI
 {
@@ -15,12 +16,13 @@ namespace EgitimPortalProject.WebAPI
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+            .UseServiceProviderFactory(new AutofacServiceProviderFactory())
             .ConfigureContainer<ContainerBuilder>(builder =>
             {
                 builder.RegisterModule(new AutofacBusinessModule());
-                builder.RegisterModule(new AutoFacMapperModule());
-                builder.RegisterModule(new AutoFacValidationModule());
+              
             })
+
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
