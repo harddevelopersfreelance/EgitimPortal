@@ -4,6 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Concrete\EntityFramework\Mappings\**" />
+    <EmbeddedResource Remove="Concrete\EntityFramework\Mappings\**" />
+    <None Remove="Concrete\EntityFramework\Mappings\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\EgitimPortalProject.EfMigrationTools\EgitimPortalProject.EfMigrationTools.csproj" />

@@ -24,7 +24,7 @@ namespace EgitimPortalProject.Core.Utilities.Security.Jwt
             _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
            _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
         }
-        public AccessToken CreateToken(User user, List<Role> operationClaims)
+        public AccessToken CreateToken(Users user, List<Roles> operationClaims)
         {
 
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
@@ -41,8 +41,8 @@ namespace EgitimPortalProject.Core.Utilities.Security.Jwt
             };
         }
 
-        public JwtSecurityToken CreatejwtSecurityToken(TokenOptions tokenOptions, User user,
-            SigningCredentials signingCredentials, List<Role> operationClaims)
+        public JwtSecurityToken CreatejwtSecurityToken(TokenOptions tokenOptions, Users user,
+            SigningCredentials signingCredentials, List<Roles> operationClaims)
         {
             var jwt = new JwtSecurityToken(
                 issuer: tokenOptions.Issuer,
@@ -55,7 +55,7 @@ namespace EgitimPortalProject.Core.Utilities.Security.Jwt
             return jwt;
         }
 
-        private IEnumerable<Claim> SetClaims(User user, List<Role> operationClaims)
+        private IEnumerable<Claim> SetClaims(Users user, List<Roles> operationClaims)
         {
             var claims = new List<Claim>();
             claims.AddNameIdentifer(user.Id.ToString());

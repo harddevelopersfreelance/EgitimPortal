@@ -18,7 +18,7 @@ namespace EgitimPortalProject.Business.DependencyResolvers.Autofac
             
 
             builder.RegisterType<UserManager>().As<IUserService>();
-            builder.RegisterType<UserDal>().As<IUserDal>();
+            builder.RegisterType<EfUserDal>().As<IUserDal>();
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();

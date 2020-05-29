@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace EgitimPortalProject.Core.Entities.Concrete
 {
-    public class Role : IEntity
+    public class Roles : IEntity
     {
-        public Role()
+        public Roles()
         {
-            UserRoles = new HashSet<UserRole>();
+            UserRoles = new HashSet<UserRoles>();
         }
 
         public int RoleId { get; set; }
         public string RoleName { get; set; }
 
-        public virtual ICollection<UserRole> UserRoles { get; set; }
+        public virtual ICollection<UserRoles> UserRoles { get; set; }
     }
 }

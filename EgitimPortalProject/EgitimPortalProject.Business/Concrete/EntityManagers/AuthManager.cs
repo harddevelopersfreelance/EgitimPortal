@@ -19,14 +19,14 @@ namespace EgitimPortalProject.Business.Concrete.EntityManagers
             _userService = userService;
             _tokenHelper = tokenHelper;
         }
-        public AccessToken CreateAccessToken(User user)
+        public AccessToken CreateAccessToken(Users user)
         {
             var claims = _userService.GetClaims(user);
             var accessToken = _tokenHelper.CreateToken(user, claims);
             return accessToken;
         }
 
-        public User Login(UserForLoginDto userForLoginDto)
+        public Users Login(UserForLoginDto userForLoginDto)
         {
             var userToCheck = _userService.GetByMail(userForLoginDto.Email);
             if (userToCheck == null)
@@ -42,12 +42,12 @@ namespace EgitimPortalProject.Business.Concrete.EntityManagers
             return userToCheck;
         }
 
-        public User Register(UserForRegisterDto userForRegisterDto, string password)
+        public Users Register(UserForRegisterDto userForRegisterDto, string password)
         {
 
             byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
-            var user = new User
+            var user = new Users
             {
                 Email = userForRegisterDto.Email,
                 FirstName = userForRegisterDto.FirstName,

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EgitimPortalProject.Core.DataAccess.EntityFramework
 {
-    public class EfEntityRepository<TEntity, TContext> : IEntityRepositoryBase<TEntity>
+    public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepositoryBase<TEntity>
                where TEntity : class, IEntity, new()
           where TContext : DbContext, new()
     {

@@ -9,12 +9,12 @@ namespace EgitimPortalProject.Business.Abstract
 {
 public    interface IAuthService
     {
-        User Register(UserForRegisterDto userForRegisterDto, string password);
+        Users Register(UserForRegisterDto userForRegisterDto, string password);
 
-        User Login(UserForLoginDto userForLoginDto);
+        Users Login(UserForLoginDto userForLoginDto);
 
         bool UserExists(string email);
 
-        AccessToken CreateAccessToken(User user);
+        AccessToken CreateAccessToken(Users user);
     }
 }

@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Project.Business.ValidationRules.FluentValidation
 {
-    public class UserValidator : AbstractValidator<User>
+    public class UserValidator : AbstractValidator<Users>
     {
         public UserValidator()
         {

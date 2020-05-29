@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace EgitimPortalProject.Core.Entities.Concrete
 {
-    public class User : AuditableEntityCreatedBase, IEntity//AuditableEntityBase
+    public class Users : AuditableEntityCreatedBase, IEntity//AuditableEntityBase
     {
-        public User()
+        public Users()
         {
-            UserRoles = new HashSet<UserRole>();
+            UserRoles = new HashSet<UserRoles>();
         }
 
         public int UserId { get; set; }
@@ -20,6 +20,6 @@ namespace EgitimPortalProject.Core.Entities.Concrete
         public byte[] PasswordHash { get; set; }
         public bool Status { get; set; }
         public DateTime? DeletedDate { get; set; }
-        public virtual ICollection<UserRole> UserRoles { get; set; }
+        public virtual ICollection<UserRoles> UserRoles { get; set; }
     }
 }

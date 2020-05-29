@@ -15,23 +15,23 @@ namespace EgitimPortalProject.Business.Concrete.EntityManagers
         {
             _userDal = userDal;
         }
-        public void Add(User user)
+        public void Add(Users user)
         {
             _userDal.Add(user);
         }
 
-        public User GetByMail(string email)
+        public Users GetByMail(string email)
         { 
             var data = _userDal.Get((u => u.Email == email));
             return data;
         }
 
-        public List<Role> GetClaims(User user)
+        public List<Roles> GetClaims(Users user)
         {
             return _userDal.GetClaims(user);
         }
 
-        public User GetUserByInfo(string email, string userName)
+        public Users GetUserByInfo(string email, string userName)
         {
             throw new NotImplementedException();
         }
@@ -41,7 +41,7 @@ namespace EgitimPortalProject.Business.Concrete.EntityManagers
             throw new NotImplementedException();
         }
 
-        public User UserActivate(Guid activateId)
+        public Users UserActivate(Guid activateId)
         {
             throw new NotImplementedException();
         }

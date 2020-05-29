@@ -9,7 +9,7 @@ namespace EgitimPortalProject.Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<IValidator<User>>().As<UserValidator>().SingleInstance();
+            builder.RegisterType<IValidator<Users>>().As<UserValidator>().SingleInstance();
 
 
 

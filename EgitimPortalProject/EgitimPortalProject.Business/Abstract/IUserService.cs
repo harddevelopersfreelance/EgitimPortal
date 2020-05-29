@@ -12,12 +12,12 @@ namespace EgitimPortalProject.Business.Abstract
 
         bool IsUserCheck(string email, string userName);
 
-        User UserActivate(Guid activateId);
+        Users UserActivate(Guid activateId);
 
-        User GetUserByInfo(string email, string userName);
-        User GetByMail(string email);
-        List<Role> GetClaims(User user);
-        void Add(User user);
+        Users GetUserByInfo(string email, string userName);
+        Users GetByMail(string email);
+        List<Roles> GetClaims(Users user);
+        void Add(Users user);
 
     }
 }

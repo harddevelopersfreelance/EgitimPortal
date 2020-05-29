@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace EgitimPortalProject.Business.ValidationRules.FluentValidation
 {
-    public class RoleValidatior : AbstractValidator<Role>
+    public class RoleValidatior : AbstractValidator<Roles>
     {
         public RoleValidatior()
         {
