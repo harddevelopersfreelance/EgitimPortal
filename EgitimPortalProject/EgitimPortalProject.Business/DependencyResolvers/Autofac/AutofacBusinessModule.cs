@@ -6,7 +6,7 @@ using EgitimPortalProject.Business.Concrete;
 using EgitimPortalProject.Business.Concrete.EntityManagers;
 using EgitimPortalProject.Core.Utilities.Security.Jwt;
 using EgitimPortalProject.DataAccess.Abstract;
-using EgitimPortalProject.DataAccess.Concrete;
+using EgitimPortalProject.DataAccess.Concrete.EntityFramework;
 
 namespace EgitimPortalProject.Business.DependencyResolvers.Autofac
 {

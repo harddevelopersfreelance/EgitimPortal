@@ -7,21 +7,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.WebAPI"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.MvcWebUI", "EgitimPortalProject.MvcWebUI\EgitimPortalProject.MvcWebUI.csproj", "{0C3EAD73-3F55-4237-B590-F5F95EBF0C28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.Core", "EgitimPortalProject.Core\EgitimPortalProject.Core.csproj", "{90C5C2F4-BC5D-481B-A47A-BA9D17850139}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.Core", "EgitimPortalProject.Core\EgitimPortalProject.Core.csproj", "{90C5C2F4-BC5D-481B-A47A-BA9D17850139}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.Business", "EgitimPortalProject.Business\EgitimPortalProject.Business.csproj", "{EDF37907-7B91-458A-9DA4-B3DF53E5441B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.Business", "EgitimPortalProject.Business\EgitimPortalProject.Business.csproj", "{EDF37907-7B91-458A-9DA4-B3DF53E5441B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.DataAccess", "EgitimPortalProject.DataAccess\EgitimPortalProject.DataAccess.csproj", "{C35461A0-EB5C-428C-96F0-606CB8AD437F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.DataAccess", "EgitimPortalProject.DataAccess\EgitimPortalProject.DataAccess.csproj", "{C35461A0-EB5C-428C-96F0-606CB8AD437F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.Entities", "EgitimPortalProject.Entities\EgitimPortalProject.Entities.csproj", "{52880BD5-8BC1-4838-9147-32599DCBEB8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.Entities", "EgitimPortalProject.Entities\EgitimPortalProject.Entities.csproj", "{52880BD5-8BC1-4838-9147-32599DCBEB8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.ElasticSearch", "EgitimPortalProject.ElasticSearch\EgitimPortalProject.ElasticSearch.csproj", "{CAC8D126-DE10-45F9-80F4-B24D2794DFBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.ElasticSearch", "EgitimPortalProject.ElasticSearch\EgitimPortalProject.ElasticSearch.csproj", "{CAC8D126-DE10-45F9-80F4-B24D2794DFBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.Hangfire", "EgitimPortalProject.Hangfire\EgitimPortalProject.Hangfire.csproj", "{C4E9C207-B763-43B9-8D26-1438E93B8F74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.Hangfire", "EgitimPortalProject.Hangfire\EgitimPortalProject.Hangfire.csproj", "{C4E9C207-B763-43B9-8D26-1438E93B8F74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.RepoDB", "EgitimPortalProject.RepoDB\EgitimPortalProject.RepoDB.csproj", "{D61AD1B0-4778-4932-B300-DA624E5AC9AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.RepoDB", "EgitimPortalProject.RepoDB\EgitimPortalProject.RepoDB.csproj", "{D61AD1B0-4778-4932-B300-DA624E5AC9AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.RabbitMQ", "EgitimPortalProject.RabbitMQ\EgitimPortalProject.RabbitMQ.csproj", "{37EA10E8-18B6-4BDF-9F5D-72B90DB9DD6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.RabbitMQ", "EgitimPortalProject.RabbitMQ\EgitimPortalProject.RabbitMQ.csproj", "{37EA10E8-18B6-4BDF-9F5D-72B90DB9DD6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.EfMigrationTools", "EgitimPortalProject.EfMigrationTools\EgitimPortalProject.EfMigrationTools.csproj", "{70ED44CD-0F0A-4ED2-A944-D76B908D68BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{37EA10E8-18B6-4BDF-9F5D-72B90DB9DD6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37EA10E8-18B6-4BDF-9F5D-72B90DB9DD6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37EA10E8-18B6-4BDF-9F5D-72B90DB9DD6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70ED44CD-0F0A-4ED2-A944-D76B908D68BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70ED44CD-0F0A-4ED2-A944-D76B908D68BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70ED44CD-0F0A-4ED2-A944-D76B908D68BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70ED44CD-0F0A-4ED2-A944-D76B908D68BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

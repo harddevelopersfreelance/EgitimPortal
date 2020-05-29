@@ -20,10 +20,10 @@ namespace EgitimPortalProject.WebAPI
             .ConfigureContainer<ContainerBuilder>(builder =>
             {
                 builder.RegisterModule(new AutofacBusinessModule());
-              
+                builder.RegisterModule(new AutoFacMapperModule());
+                builder.RegisterModule(new AutoFacValidationModule());
             })
-
-                .ConfigureWebHostDefaults(webBuilder =>
+            .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 });

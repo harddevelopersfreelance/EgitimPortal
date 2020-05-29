@@ -1,7 +1,7 @@
 ﻿using EgitimPortalProject.Core.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 
-namespace EgitimPortalProject.DataAccess.Concrete.EntityFramework.DatabaseContext
+namespace EgitimPortalProject.EfMigrationTools.EntityFramework.DatabaseContext
 {
     public class EgitimPortalDbContext : DbContext
     {
@@ -9,13 +9,13 @@ namespace EgitimPortalProject.DataAccess.Concrete.EntityFramework.DatabaseContex
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=.;Database=EgitimPortalTest;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=EgitimPortal;Trusted_Connection=True;");
             }
         }
 
-        public virtual DbSet<UserRole> UserRole { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,19 +23,17 @@ namespace EgitimPortalProject.DataAccess.Concrete.EntityFramework.DatabaseContex
 
             modelBuilder.Entity<User>().ToTable("User").HasKey(u => u.UserId);
             modelBuilder.Entity<Role>().ToTable("Role").HasKey(op => op.RoleId);
-            //modelBuilder.Entity<UserOperationClaim>().ToTable("UserOperationClaim").HasNoKey();
-
             modelBuilder.Entity<UserRole>()
                 .ToTable("UserRole")
                 .HasKey(c => c.UserRoleId);
 
             modelBuilder.Entity<UserRole>()
-                .HasOne<User>(sc => sc.User)
+                .HasOne(sc => sc.User)
                 .WithMany(s => s.UserRoles)
                 .HasForeignKey(sc => sc.UserId);
 
             modelBuilder.Entity<UserRole>()
-                .HasOne<Role>(sc => sc.Role)
+                .HasOne(sc => sc.Role)
                 .WithMany(s => s.UserRoles)
                 .HasForeignKey(sc => sc.RoleId);
         }

@@ -1,23 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace EgitimPortalProject.DataAccess.Migrations
+namespace EgitimPortalProject.EfMigrationTools.Migrations
 {
-    public partial class CrateJwtTables : Migration
+    public partial class MyFirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "OperationClaim",
+                name: "Role",
                 columns: table => new
                 {
-                    OperationClaimId = table.Column<int>(nullable: false)
+                    RoleId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    OperationClaimName = table.Column<string>(nullable: true)
+                    RoleName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OperationClaim", x => x.OperationClaimId);
+                    table.PrimaryKey("PK_Role", x => x.RoleId);
                 });
 
             migrationBuilder.CreateTable(
@@ -26,13 +26,15 @@ namespace EgitimPortalProject.DataAccess.Migrations
                 {
                     UserId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatorUserId = table.Column<int>(nullable: true),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    Id = table.Column<int>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     PasswordSalt = table.Column<byte[]>(nullable: true),
                     PasswordHash = table.Column<byte[]>(nullable: true),
                     Status = table.Column<bool>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
                     DeletedDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
@@ -41,25 +43,25 @@ namespace EgitimPortalProject.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserOperationClaim",
+                name: "UserRole",
                 columns: table => new
                 {
-                    UserOperationClaimId = table.Column<int>(nullable: false)
+                    UserRoleId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(nullable: false),
-                    OperationClaimId = table.Column<int>(nullable: false)
+                    RoleId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserOperationClaim", x => x.UserOperationClaimId);
+                    table.PrimaryKey("PK_UserRole", x => x.UserRoleId);
                     table.ForeignKey(
-                        name: "FK_UserOperationClaim_OperationClaim_OperationClaimId",
-                        column: x => x.OperationClaimId,
-                        principalTable: "OperationClaim",
-                        principalColumn: "OperationClaimId",
+                        name: "FK_UserRole_Role_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "Role",
+                        principalColumn: "RoleId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserOperationClaim_User_UserId",
+                        name: "FK_UserRole_User_UserId",
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "UserId",
@@ -67,23 +69,23 @@ namespace EgitimPortalProject.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserOperationClaim_OperationClaimId",
-                table: "UserOperationClaim",
-                column: "OperationClaimId");
+                name: "IX_UserRole_RoleId",
+                table: "UserRole",
+                column: "RoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserOperationClaim_UserId",
-                table: "UserOperationClaim",
+                name: "IX_UserRole_UserId",
+                table: "UserRole",
                 column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "UserOperationClaim");
+                name: "UserRole");
 
             migrationBuilder.DropTable(
-                name: "OperationClaim");
+                name: "Role");
 
             migrationBuilder.DropTable(
                 name: "User");
