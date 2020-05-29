@@ -16,7 +16,7 @@ namespace EgitimPortalProject.Business.DependencyResolvers.Autofac
             builder.RegisterInstance(mappingConfig);
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            builder.RegisterModule(new AutoFacMapperModule()); 
+            builder.RegisterModule(new AutoFacMapperModule());
         }
     }
 }

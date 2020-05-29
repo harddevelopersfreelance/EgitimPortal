@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EgitimPortalProject.Business.Constants
+﻿namespace EgitimPortalProject.Business.Constants
 {
     public static class ConstMessagesEu
     {

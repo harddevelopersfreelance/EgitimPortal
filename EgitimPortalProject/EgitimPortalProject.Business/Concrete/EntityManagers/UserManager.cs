@@ -3,7 +3,6 @@ using EgitimPortalProject.Core.Entities.Concrete;
 using EgitimPortalProject.DataAccess.Abstract;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace EgitimPortalProject.Business.Concrete.EntityManagers
 {
@@ -15,13 +14,29 @@ namespace EgitimPortalProject.Business.Concrete.EntityManagers
         {
             _userDal = userDal;
         }
-        public void Add(Users user)
+
+        public Users Add(Users user)
         {
-            _userDal.Add(user);
+            return _userDal.Add(user);
+        }
+
+        public void Delete(Users users)
+        {
+            _userDal.Delete(users);
+        }
+
+        public List<Users> GetAll()
+        {
+            return _userDal.GetList();
+        }
+
+        public Users GetById(int id)
+        {
+            return _userDal.Get(c => c.UserId == id);
         }
 
         public Users GetByMail(string email)
-        { 
+        {
             var data = _userDal.Get((u => u.Email == email));
             return data;
         }
@@ -31,12 +46,29 @@ namespace EgitimPortalProject.Business.Concrete.EntityManagers
             return _userDal.GetClaims(user);
         }
 
+        public List<Users> GetListByGenderID(int genderid)
+        {
+            //ling dalda yazılacak
+            throw new NotImplementedException();
+        }
+
+        public List<Users> GetListByLanguageID(int languageid)
+        {
+            //ling dalda yazılacak
+            throw new NotImplementedException();
+        }
+
         public Users GetUserByInfo(string email, string userName)
         {
             throw new NotImplementedException();
         }
 
         public bool IsUserCheck(string email, string userName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users Update(Users users)
         {
             throw new NotImplementedException();
         }
