@@ -8,13 +8,12 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 
 namespace EgitimPortalProject.Core.Utilities.Security.Jwt
 {
     public class JwtHelper : ITokenHelper
     {
-        private IConfiguration Configuration { get; }  
+        private IConfiguration Configuration { get; }
         private TokenOptions _tokenOptions { get; }
         private readonly DateTime _accessTokenExpiration;
 
@@ -22,40 +21,39 @@ namespace EgitimPortalProject.Core.Utilities.Security.Jwt
         {
             Configuration = configuration;
             _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
-           _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
+            _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
         }
-        public AccessToken CreateToken(User user, List<Role> operationClaims)
-        {
 
+        public AccessToken CreateToken(Users user, List<Roles> operationClaims)
+        {
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
             var signingCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey);
             var jwt = CreatejwtSecurityToken(_tokenOptions, user, signingCredentials, operationClaims);
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
-            var token = jwtSecurityTokenHandler.WriteToken(jwt); 
+            var token = jwtSecurityTokenHandler.WriteToken(jwt);
 
             return new AccessToken
             {
                 Token = token,
                 Expiration = _accessTokenExpiration,
-
             };
         }
 
-        public JwtSecurityToken CreatejwtSecurityToken(TokenOptions tokenOptions, User user,
-            SigningCredentials signingCredentials, List<Role> operationClaims)
+        public JwtSecurityToken CreatejwtSecurityToken(TokenOptions tokenOptions, Users user,
+            SigningCredentials signingCredentials, List<Roles> operationClaims)
         {
             var jwt = new JwtSecurityToken(
                 issuer: tokenOptions.Issuer,
                 audience: tokenOptions.Audience,
                 expires: _accessTokenExpiration,
-                notBefore: DateTime.Now,                 
+                notBefore: DateTime.Now,
                 claims: SetClaims(user, operationClaims),
                 signingCredentials: signingCredentials
                 );
             return jwt;
         }
 
-        private IEnumerable<Claim> SetClaims(User user, List<Role> operationClaims)
+        private IEnumerable<Claim> SetClaims(Users user, List<Roles> operationClaims)
         {
             var claims = new List<Claim>();
             claims.AddNameIdentifer(user.Id.ToString());
