@@ -1,11 +1,11 @@
 using EgitimPortalProject.Core.Entities.Abstract;
+using EgitimPortalProject.Core.Entities.BaseEntities;
 using System;
 
 namespace EgitimPortal.Entities.Concrete
 {
-    public class Announcements : IEntity
+    public class Announcements : AuditableEntityBase, IEntity
     {
-        public virtual int Id { get; set; }
         public virtual string Title { get; set; }
         public virtual string Content { get; set; }
         public virtual DateTime PublishStartDate { get; set; }

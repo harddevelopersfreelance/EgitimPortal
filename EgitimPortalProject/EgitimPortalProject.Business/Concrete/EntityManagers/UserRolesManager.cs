@@ -17,61 +17,45 @@ namespace EgitimPortal.Business.Concrete.Managers
             _mapper = mapper;
         }
 
-         
-         
         public List<UserRoles> GetAll()
         {
             var model = _mapper.Map<List<UserRoles>>(_userrolesDal.GetList());
             return model;
         }
 
-         
-         
         public UserRoles GetById(int id)
         {
-            var model = _userrolesDal.Get(p => p.UserRoleId == id);
+            var model = _userrolesDal.Get(p => p.Id == id);
             return model;
         }
 
-         
-         
         public UserRoles Add(UserRoles userroles)
         {
             return _userrolesDal.Add(userroles);
         }
 
-         
-         
         public UserRoles Update(UserRoles userroles)
         {
             return _userrolesDal.Update(userroles);
         }
 
-         
-         
         public void Delete(UserRoles userroles)
         {
             _userrolesDal.Delete(userroles);
         }
 
-         
-         
         /// Tablosu ile olan Foreign Key Column UserId
-        public List<UserRoles> GetListByUserID(int userid)
+        public List<UserRoles> GetListByUserId(int userid)
         {
             var model = _userrolesDal.GetList(p => p.UserId == userid);
             return model;
         }
 
-         
-         
         /// Tablosu ile olan Foreign Key Column OperationClaimId
-        public List<UserRoles> GetListByRoleIdID(int operationclaimid)
+        public List<UserRoles> GetListByRoleIdId(int operationclaimid)
         {
             var model = _userrolesDal.GetList(p => p.RoleId == operationclaimid);
             return model;
         }
- 
-  
     }
 }

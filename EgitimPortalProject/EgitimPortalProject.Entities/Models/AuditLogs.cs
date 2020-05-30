@@ -1,11 +1,11 @@
 using EgitimPortalProject.Core.Entities.Abstract;
+using EgitimPortalProject.Core.Entities.BaseEntities;
 using System;
 
 namespace EgitimPortal.Entities.Concrete
 {
-    public class AuditLogs : IEntity
+    public class AuditLogs : AuditableEntityBase, IEntity
     {
-        public virtual int id { get; set; }
         public virtual int UserId { get; set; }
         public virtual string ServiceName { get; set; }
         public virtual string MethodName { get; set; }

@@ -14,9 +14,9 @@ namespace EgitimPortalProject.Business.Abstract
 
         void Delete(Users users);
 
-        List<Users> GetListByGenderID(int genderid);
+        List<Users> GetListByGenderId(int genderid);
 
-        List<Users> GetListByLanguageID(int languageid);
+        List<Users> GetListByLanguageId(int languageid);
 
         bool IsUserCheck(string email, string userName);
 

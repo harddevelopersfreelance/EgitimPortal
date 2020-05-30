@@ -1,10 +1,11 @@
 using EgitimPortalProject.Core.Entities.Abstract;
 
+using EgitimPortalProject.Core.Entities.BaseEntities;
+
 namespace EgitimPortal.Entities.Concrete
 {
-    public class Students : IEntity
+    public class Students : AuditableEntityBase, IEntity
     {
-        public virtual int StudentId { get; set; }
         public virtual int UserId { get; set; }
     }
 }

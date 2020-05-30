@@ -1,10 +1,11 @@
 using EgitimPortalProject.Core.Entities.Abstract;
 
+using EgitimPortalProject.Core.Entities.BaseEntities;
+
 namespace EgitimPortal.Entities.Concrete
 {
-    public class StudentCourseWatchLog : IEntity
+    public class StudentCourseWatchLog : AuditableEntityBase, IEntity
     {
-        public virtual int StudentCourseWatchLogId { get; set; }
         public virtual string Student { get; set; }
     }
 }

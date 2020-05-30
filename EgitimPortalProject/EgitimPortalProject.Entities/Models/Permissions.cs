@@ -1,10 +1,11 @@
 using EgitimPortalProject.Core.Entities.Abstract;
 
+using EgitimPortalProject.Core.Entities.BaseEntities;
+
 namespace EgitimPortal.Entities.Concrete
 {
-    public class Permissions : IEntity
+    public class Permissions : AuditableEntityBase, IEntity
     {
-        public virtual int id { get; set; }
         public virtual string Name { get; set; }
         public virtual int PermissionTypeId { get; set; }
         public virtual int RoleId { get; set; }

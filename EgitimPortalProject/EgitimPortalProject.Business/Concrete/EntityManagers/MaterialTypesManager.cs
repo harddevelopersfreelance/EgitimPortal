@@ -17,38 +17,28 @@ namespace EgitimPortal.Business.Concrete.Managers
             _mapper = mapper;
         }
 
-         
-         
         public List<MaterialTypes> GetAll()
         {
             var model = _mapper.Map<List<MaterialTypes>>(_materialtypesDal.GetList());
             return model;
         }
 
-         
-         
         public MaterialTypes GetById(int id)
         {
-            var model = _materialtypesDal.Get(p => p.TypeId == id);
+            var model = _materialtypesDal.Get(p => p.Id == id);
             return model;
         }
 
-         
-         
         public MaterialTypes Add(MaterialTypes materialtypes)
         {
             return _materialtypesDal.Add(materialtypes);
         }
 
-         
-         
         public MaterialTypes Update(MaterialTypes materialtypes)
         {
             return _materialtypesDal.Update(materialtypes);
         }
 
-         
-         
         public void Delete(MaterialTypes materialtypes)
         {
             _materialtypesDal.Delete(materialtypes);

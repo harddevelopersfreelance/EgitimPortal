@@ -17,47 +17,35 @@ namespace EgitimPortal.Business.Concrete.Managers
             _mapper = mapper;
         }
 
-         
-         
         public List<Surveys> GetAll()
         {
             var model = _mapper.Map<List<Surveys>>(_surveysDal.GetList());
             return model;
         }
 
-         
-         
         public Surveys GetById(int id)
         {
             var model = _surveysDal.Get(p => p.Id == id);
             return model;
         }
 
-         
-         
         public Surveys Add(Surveys surveys)
         {
             return _surveysDal.Add(surveys);
         }
 
-         
-         
         public Surveys Update(Surveys surveys)
         {
             return _surveysDal.Update(surveys);
         }
 
-         
-         
         public void Delete(Surveys surveys)
         {
             _surveysDal.Delete(surveys);
         }
 
-         
-         
         ///UserRoles Tablosu ile olan Foreign Key Column Id
-        public List<Surveys> GetListByUserRolesID(int id)
+        public List<Surveys> GetListByUserRolesId(int id)
         {
             var model = _surveysDal.GetList(p => p.Id == id);
             return model;

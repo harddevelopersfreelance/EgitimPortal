@@ -15,6 +15,6 @@ namespace EgitimPortal.Business.Abstract
 
         void Delete(Surveys surveys);
 
-        List<Surveys> GetListByUserRolesID(int id);
+        List<Surveys> GetListByUserRolesId(int id);
     }
 }

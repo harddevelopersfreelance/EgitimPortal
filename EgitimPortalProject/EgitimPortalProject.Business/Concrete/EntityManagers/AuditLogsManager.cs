@@ -17,47 +17,35 @@ namespace EgitimPortal.Business.Concrete.Managers
             _mapper = mapper;
         }
 
-         
-         
         public List<AuditLogs> GetAll()
         {
             var model = _mapper.Map<List<AuditLogs>>(_auditlogsDal.GetList());
             return model;
         }
 
-         
-         
         public AuditLogs GetById(int id)
         {
-            var model = _auditlogsDal.Get(p => p.id == id);
+            var model = _auditlogsDal.Get(p => p.Id == id);
             return model;
         }
 
-         
-         
         public AuditLogs Add(AuditLogs auditlogs)
         {
             return _auditlogsDal.Add(auditlogs);
         }
 
-         
-         
         public AuditLogs Update(AuditLogs auditlogs)
         {
             return _auditlogsDal.Update(auditlogs);
         }
 
-         
-         
         public void Delete(AuditLogs auditlogs)
         {
             _auditlogsDal.Delete(auditlogs);
         }
 
-         
-         
         /// Tablosu ile olan Foreign Key Column UserId
-        public List<AuditLogs> GetListByUserID(int userid)
+        public List<AuditLogs> GetListByUserId(int userid)
         {
             var model = _auditlogsDal.GetList(p => p.UserId == userid);
             return model;

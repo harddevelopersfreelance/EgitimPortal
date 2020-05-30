@@ -17,38 +17,28 @@ namespace EgitimPortal.Business.Concrete.Managers
             _mapper = mapper;
         }
 
-         
-         
         public List<Cauntries> GetAll()
         {
             var model = _mapper.Map<List<Cauntries>>(_cauntriesDal.GetList());
             return model;
         }
 
-         
-         
         public Cauntries GetById(int id)
         {
             var model = _cauntriesDal.Get(p => p.Id == id);
             return model;
         }
 
-         
-         
         public Cauntries Add(Cauntries cauntries)
         {
             return _cauntriesDal.Add(cauntries);
         }
 
-         
-         
         public Cauntries Update(Cauntries cauntries)
         {
             return _cauntriesDal.Update(cauntries);
         }
 
-         
-         
         public void Delete(Cauntries cauntries)
         {
             _cauntriesDal.Delete(cauntries);

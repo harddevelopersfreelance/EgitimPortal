@@ -1,10 +1,11 @@
 using EgitimPortalProject.Core.Entities.Abstract;
 
+using EgitimPortalProject.Core.Entities.BaseEntities;
+
 namespace EgitimPortal.Entities.Concrete
 {
-    public class Surveys : IEntity
+    public class Surveys : AuditableEntityBase, IEntity
     {
-        public virtual int Id { get; set; }
         public virtual string SurveyName { get; set; }
         public virtual string Title { get; set; }
         public virtual string Description { get; set; }

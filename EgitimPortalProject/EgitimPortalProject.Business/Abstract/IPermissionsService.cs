@@ -15,10 +15,10 @@ namespace EgitimPortal.Business.Abstract
 
         void Delete(Permissions permissions);
 
-        List<Permissions> GetListByPermissionTypeID(int permissiontypeid);
+        List<Permissions> GetListByPermissionTypeId(int permissiontypeid);
 
-        List<Permissions> GetListByRoleID(int roleid);
+        List<Permissions> GetListByRoleId(int roleid);
 
-        List<Permissions> GetListByUserID(int userid);
+        List<Permissions> GetListByUserId(int userid);
     }
 }

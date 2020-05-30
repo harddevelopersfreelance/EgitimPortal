@@ -15,8 +15,8 @@ namespace EgitimPortal.Business.Abstract
 
         void Delete(UserRoles userroles);
 
-        List<UserRoles> GetListByUserID(int userid);
+        List<UserRoles> GetListByUserId(int userid);
 
-        List<UserRoles> GetListByRoleIdID(int operationclaimid);
+        List<UserRoles> GetListByRoleIdId(int operationclaimid);
     }
 }

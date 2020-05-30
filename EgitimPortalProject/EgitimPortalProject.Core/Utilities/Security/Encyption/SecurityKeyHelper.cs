@@ -1,11 +1,9 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace EgitimPortalProject.Core.Utilities.Security.Encyption
 {
- public class SecurityKeyHelper
+    public class SecurityKeyHelper
     {
         public static SecurityKey CreateSecurityKey(string securityKey)
         {

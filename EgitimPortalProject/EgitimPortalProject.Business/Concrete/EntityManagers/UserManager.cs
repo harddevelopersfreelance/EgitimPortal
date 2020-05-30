@@ -32,7 +32,7 @@ namespace EgitimPortalProject.Business.Concrete.EntityManagers
 
         public Users GetById(int id)
         {
-            return _userDal.Get(c => c.UserId == id);
+            return _userDal.Get(c => c.Id == id);
         }
 
         public Users GetByMail(string email)
@@ -46,13 +46,13 @@ namespace EgitimPortalProject.Business.Concrete.EntityManagers
             return _userDal.GetClaims(user);
         }
 
-        public List<Users> GetListByGenderID(int genderid)
+        public List<Users> GetListByGenderId(int genderid)
         {
             //ling dalda yazılacak
             throw new NotImplementedException();
         }
 
-        public List<Users> GetListByLanguageID(int languageid)
+        public List<Users> GetListByLanguageId(int languageid)
         {
             //ling dalda yazılacak
             throw new NotImplementedException();

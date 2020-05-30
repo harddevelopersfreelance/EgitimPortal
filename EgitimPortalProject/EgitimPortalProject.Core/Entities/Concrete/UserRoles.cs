@@ -1,10 +1,10 @@
 ﻿using EgitimPortalProject.Core.Entities.Abstract;
+using EgitimPortalProject.Core.Entities.BaseEntities;
 
 namespace EgitimPortalProject.Core.Entities.Concrete
 {
-    public class UserRoles : IEntity
+    public class UserRoles : AuditableEntityBase, IEntity
     {
-        public int UserRoleId { get; set; }
         public int UserId { get; set; }
         public int RoleId { get; set; }
 

@@ -1,13 +1,14 @@
 using EgitimPortalProject.Core.Entities.Abstract;
 
+using EgitimPortalProject.Core.Entities.BaseEntities;
+
 namespace EgitimPortal.Entities.Concrete
 {
-    public class Language : IEntity
+    public class Language : AuditableEntityBase, IEntity
     {
-        public virtual int id { get; set; }
         public virtual string Name { get; set; }
         public virtual string DisplayName { get; set; }
         public virtual string Icon { get; set; }
-        public virtual bool IsDisabled { get; set; }
+        public virtual bool IsActive { get; set; }
     }
 }

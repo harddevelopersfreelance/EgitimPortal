@@ -1,10 +1,11 @@
 using EgitimPortalProject.Core.Entities.Abstract;
 
+using EgitimPortalProject.Core.Entities.BaseEntities;
+
 namespace EgitimPortal.Entities.Concrete
 {
-    public class LanguageText : IEntity
+    public class LanguageText : AuditableEntityBase, IEntity
     {
-        public virtual int id { get; set; }
         public virtual string LanguageName { get; set; }
         public virtual string Source { get; set; }
         public virtual string Key { get; set; }

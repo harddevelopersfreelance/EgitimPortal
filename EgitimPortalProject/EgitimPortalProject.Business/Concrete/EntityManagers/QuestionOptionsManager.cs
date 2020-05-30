@@ -17,52 +17,38 @@ namespace EgitimPortal.Business.Concrete.Managers
             _mapper = mapper;
         }
 
-         
-         
         public List<QuestionOptions> GetAll()
         {
             var model = _mapper.Map<List<QuestionOptions>>(_questionoptionsDal.GetList());
             return model;
         }
 
-         
-         
         public QuestionOptions GetById(int id)
         {
-            var model = _questionoptionsDal.Get(p => p.QuestionOptionId == id);
+            var model = _questionoptionsDal.Get(p => p.Id == id);
             return model;
         }
 
-         
-         
         public QuestionOptions Add(QuestionOptions questionoptions)
         {
             return _questionoptionsDal.Add(questionoptions);
         }
 
-         
-         
         public QuestionOptions Update(QuestionOptions questionoptions)
         {
             return _questionoptionsDal.Update(questionoptions);
         }
 
-         
-         
         public void Delete(QuestionOptions questionoptions)
         {
             _questionoptionsDal.Delete(questionoptions);
         }
 
-         
-         
         /// Tablosu ile olan Foreign Key Column QuestionOptionTypeId
-        public List<QuestionOptions> GetListByQuestionOptionTypeID(int questionoptiontypeid)
+        public List<QuestionOptions> GetListByQuestionOptionTypeId(int questionoptiontypeid)
         {
             var model = _questionoptionsDal.GetList(p => p.QuestionOptionTypeId == questionoptiontypeid);
             return model;
         }
-
-        
     }
 }

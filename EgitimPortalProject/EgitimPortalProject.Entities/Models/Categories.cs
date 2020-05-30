@@ -1,10 +1,11 @@
 using EgitimPortalProject.Core.Entities.Abstract;
 
+using EgitimPortalProject.Core.Entities.BaseEntities;
+
 namespace EgitimPortal.Entities.Concrete
 {
-    public class Categories : IEntity
+    public class Categories : AuditableEntityBase, IEntity
     {
-        public virtual int FlagId { get; set; }
-        public virtual string FlagName { get; set; }
+        public virtual string CategoryName { get; set; }
     }
 }

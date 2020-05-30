@@ -15,8 +15,8 @@ namespace EgitimPortal.Business.Abstract
 
         void Delete(Settings settings);
 
-        List<Settings> GetListByUserID(int userid);
+        List<Settings> GetListByUserId(int userid);
 
-        List<Settings> GetListByRoleID(int roleid);
+        List<Settings> GetListByRoleId(int roleid);
     }
 }

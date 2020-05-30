@@ -15,8 +15,8 @@ namespace EgitimPortal.Business.Abstract
 
         void Delete(LessonMaterials lessonmaterials);
 
-        List<LessonMaterials> GetListByExamTypeID(int typeid);
+        List<LessonMaterials> GetListByExamTypeId(int typeid);
 
-        List<LessonMaterials> GetListByLessonID(int lessonid);
+        List<LessonMaterials> GetListByLessonId(int lessonid);
     }
 }

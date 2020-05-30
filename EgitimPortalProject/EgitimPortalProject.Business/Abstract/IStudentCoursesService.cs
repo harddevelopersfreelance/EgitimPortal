@@ -15,8 +15,8 @@ namespace EgitimPortal.Business.Abstract
 
         void Delete(StudentCourses studentcourses);
 
-        List<StudentCourses> GetListByStudentsID(int studentid);
+        List<StudentCourses> GetListByStudentsId(int studentid);
 
-        List<StudentCourses> GetListByCoursesID(int courseid);
+        List<StudentCourses> GetListByCoursesId(int courseid);
     }
 }

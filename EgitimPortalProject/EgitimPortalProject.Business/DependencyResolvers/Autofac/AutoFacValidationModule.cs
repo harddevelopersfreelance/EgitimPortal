@@ -3,7 +3,7 @@ using EgitimPortal.Business.ValidationRules.FluentValidation;
 using EgitimPortal.Entities.Concrete;
 using EgitimPortalProject.Core.Entities.Concrete;
 using FluentValidation;
-using Microsoft.AspNetCore.Identity;
+using Module = Autofac.Module;
 
 namespace EgitimPortalProject.Business.DependencyResolvers.Autofac
 {
@@ -11,6 +11,12 @@ namespace EgitimPortalProject.Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
+            // program.cs de eklendi burada gerek kalmayabilir denenecek
+            builder.RegisterAssemblyTypes(ThisAssembly)
+                    .Where(t => t.Name.EndsWith("Validator"))
+                    .AsImplementedInterfaces()
+                    .InstancePerLifetimeScope();
+
             builder.RegisterType<IValidator<Announcements>>().As<AnnouncementsValidatior>().SingleInstance();
             builder.RegisterType<IValidator<AnnouncementUsers>>().As<AnnouncementUsersValidatior>().SingleInstance();
             builder.RegisterType<IValidator<AuditLogs>>().As<AuditLogsValidatior>().SingleInstance();
@@ -60,8 +66,9 @@ namespace EgitimPortalProject.Business.DependencyResolvers.Autofac
             builder.RegisterType<IValidator<UserRoles>>().As<UserRolesValidatior>().SingleInstance();
             builder.RegisterType<IValidator<Users>>().As<UsersValidatior>().SingleInstance();
 
-            // program.cs de eklendi burada gerek kalmayabilir denenecek
-            //builder.RegisterModule(new AutoFacValidationModule());
+            builder.RegisterType<AutofacValidatorFactory>().As<IValidatorFactory>().SingleInstance();
+
+            base.Load(builder);
         }
     }
 }

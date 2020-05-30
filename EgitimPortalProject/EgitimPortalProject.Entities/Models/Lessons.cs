@@ -1,11 +1,11 @@
 using EgitimPortalProject.Core.Entities.Abstract;
+using EgitimPortalProject.Core.Entities.BaseEntities;
 using System;
 
 namespace EgitimPortal.Entities.Concrete
 {
-    public class Lessons : IEntity
+    public class Lessons : AuditableEntityBase, IEntity
     {
-        public virtual int Id { get; set; }
         public virtual string LessonName { get; set; }
         public virtual DateTime LessonTime { get; set; }
         public virtual bool IsActive { get; set; }

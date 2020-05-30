@@ -1,9 +1,11 @@
 using EgitimPortalProject.Core.Entities.Abstract;
 
+using EgitimPortalProject.Core.Entities.BaseEntities;
+
 namespace EgitimPortal.Entities.Concrete
 {
-    public class PrivateCourseLessons : IEntity
+    public class PrivateCourseLessons : AuditableEntityBase, IEntity
     {
-        public virtual int PrivateCourseLessonsId { get; set; }
+        //bos?
     }
 }

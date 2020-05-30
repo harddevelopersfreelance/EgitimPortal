@@ -45,26 +45,24 @@ namespace EgitimPortal.Business.Concrete.Managers
         }
 
         /// Tablosu ile olan Foreign Key Column CategoryId
-        public List<Questions> GetListByCatgoryID(int categoryid)
+        public List<Questions> GetListByCatgoryId(int categoryid)
         {
             var model = _questionsDal.GetList(p => p.CategoryId == categoryid);
             return model;
         }
 
         /// Tablosu ile olan Foreign Key Column QuestionLevelId
-        public List<Questions> GetListByQuestionLevelID(int questionlevelid)
+        public List<Questions> GetListByQuestionLevelId(int questionlevelid)
         {
             var model = _questionsDal.GetList(p => p.QuestionLevelId == questionlevelid);
             return model;
         }
 
         /// Tablosu ile olan Foreign Key Column QuestionTypeId
-        public List<Questions> GetListByQuestionTypeID(int questiontypeid)
+        public List<Questions> GetListByQuestionTypeId(int questiontypeid)
         {
             var model = _questionsDal.GetList(p => p.QuestionTypeId == questiontypeid);
             return model;
         }
-
-         
     }
 }

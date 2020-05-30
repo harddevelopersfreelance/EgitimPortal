@@ -15,8 +15,8 @@ namespace EgitimPortal.Business.Abstract
 
         void Delete(SurveyQuestionAnswers surveyquestionanswers);
 
-        List<SurveyQuestionAnswers> GetListByQuestionID(int questionid);
+        List<SurveyQuestionAnswers> GetListByQuestionId(int questionid);
 
-        List<SurveyQuestionAnswers> GetListByOptionID(int optionid);
+        List<SurveyQuestionAnswers> GetListByOptionId(int optionid);
     }
 }

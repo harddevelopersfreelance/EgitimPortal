@@ -15,6 +15,6 @@ namespace EgitimPortal.Business.Abstract
 
         void Delete(Cities cities);
 
-        List<Cities> GetListByCauntryID(int cauntryid);
+        List<Cities> GetListByCauntryId(int cauntryid);
     }
 }

@@ -15,9 +15,9 @@ namespace EgitimPortalProject.DataAccess.Concrete.EntityFramework
             {
                 var result = from role in context.Roles
                              join userRole in context.UserRoles
-                                 on role.RoleId equals userRole.RoleId
+                                 on role.Id equals userRole.RoleId
                              where userRole.UserId == user.Id
-                             select new Roles { RoleId = role.RoleId, RoleName = role.RoleName };
+                             select new Roles { Id = role.Id, RoleName = role.RoleName };
                 return result.ToList();
             }
         }

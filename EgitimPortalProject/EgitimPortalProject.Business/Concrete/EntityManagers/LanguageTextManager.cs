@@ -17,38 +17,28 @@ namespace EgitimPortal.Business.Concrete.Managers
             _mapper = mapper;
         }
 
-         
-         
         public List<LanguageText> GetAll()
         {
             var model = _mapper.Map<List<LanguageText>>(_languagetextDal.GetList());
             return model;
         }
 
-         
-         
         public LanguageText GetById(int id)
         {
-            var model = _languagetextDal.Get(p => p.id == id);
+            var model = _languagetextDal.Get(p => p.Id == id);
             return model;
         }
 
-         
-         
         public LanguageText Add(LanguageText languagetext)
         {
             return _languagetextDal.Add(languagetext);
         }
 
-         
-         
         public LanguageText Update(LanguageText languagetext)
         {
             return _languagetextDal.Update(languagetext);
         }
 
-         
-         
         public void Delete(LanguageText languagetext)
         {
             _languagetextDal.Delete(languagetext);

@@ -17,38 +17,28 @@ namespace EgitimPortal.Business.Concrete.Managers
             _mapper = mapper;
         }
 
-         
-         
         public List<PrivateCourseLessons> GetAll()
         {
             var model = _mapper.Map<List<PrivateCourseLessons>>(_privatecourselessonsDal.GetList());
             return model;
         }
 
-         
-         
         public PrivateCourseLessons GetById(int id)
         {
-            var model = _privatecourselessonsDal.Get(p => p.PrivateCourseLessonsId == id);
+            var model = _privatecourselessonsDal.Get(p => p.Id == id);
             return model;
         }
 
-         
-         
         public PrivateCourseLessons Add(PrivateCourseLessons privatecourselessons)
         {
             return _privatecourselessonsDal.Add(privatecourselessons);
         }
 
-         
-         
         public PrivateCourseLessons Update(PrivateCourseLessons privatecourselessons)
         {
             return _privatecourselessonsDal.Update(privatecourselessons);
         }
 
-         
-         
         public void Delete(PrivateCourseLessons privatecourselessons)
         {
             _privatecourselessonsDal.Delete(privatecourselessons);

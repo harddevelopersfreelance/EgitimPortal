@@ -17,60 +17,45 @@ namespace EgitimPortal.Business.Concrete.Managers
             _mapper = mapper;
         }
 
-         
-         
         public List<LessonMaterials> GetAll()
         {
             var model = _mapper.Map<List<LessonMaterials>>(_lessonmaterialsDal.GetList());
             return model;
         }
 
-         
-         
         public LessonMaterials GetById(int id)
         {
             var model = _lessonmaterialsDal.Get(p => p.MaterialId == id);
             return model;
         }
 
-         
-         
         public LessonMaterials Add(LessonMaterials lessonmaterials)
         {
             return _lessonmaterialsDal.Add(lessonmaterials);
         }
 
-         
-         
         public LessonMaterials Update(LessonMaterials lessonmaterials)
         {
             return _lessonmaterialsDal.Update(lessonmaterials);
         }
 
-         
-         
         public void Delete(LessonMaterials lessonmaterials)
         {
             _lessonmaterialsDal.Delete(lessonmaterials);
         }
 
-         
-         
         ///ExamType Tablosu ile olan Foreign Key Column TypeId
-        public List<LessonMaterials> GetListByExamTypeID(int typeid)
+        public List<LessonMaterials> GetListByExamTypeId(int typeid)
         {
             var model = _lessonmaterialsDal.GetList(p => p.TypeId == typeid);
             return model;
         }
 
-         
-         
         /// Tablosu ile olan Foreign Key Column LessonId
-        public List<LessonMaterials> GetListByLessonID(int lessonid)
+        public List<LessonMaterials> GetListByLessonId(int lessonid)
         {
             var model = _lessonmaterialsDal.GetList(p => p.LessonId == lessonid);
             return model;
         }
- 
     }
 }

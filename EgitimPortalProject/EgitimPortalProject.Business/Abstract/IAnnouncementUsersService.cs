@@ -15,8 +15,8 @@ namespace EgitimPortal.Business.Abstract
 
         void Delete(AnnouncementUsers announcementusers);
 
-        List<AnnouncementUsers> GetListByAnnouncementID(int announcementid);
+        List<AnnouncementUsers> GetListByAnnouncementId(int announcementid);
 
-        List<AnnouncementUsers> GetListByUserID(int userid);
+        List<AnnouncementUsers> GetListByUserId(int userid);
     }
 }

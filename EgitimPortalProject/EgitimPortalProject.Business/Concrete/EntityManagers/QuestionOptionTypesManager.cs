@@ -17,38 +17,28 @@ namespace EgitimPortal.Business.Concrete.Managers
             _mapper = mapper;
         }
 
-         
-         
         public List<QuestionOptionTypes> GetAll()
         {
             var model = _mapper.Map<List<QuestionOptionTypes>>(_questionoptiontypesDal.GetList());
             return model;
         }
 
-         
-         
         public QuestionOptionTypes GetById(int id)
         {
-            var model = _questionoptiontypesDal.Get(p => p.id == id);
+            var model = _questionoptiontypesDal.Get(p => p.Id == id);
             return model;
         }
 
-         
-         
         public QuestionOptionTypes Add(QuestionOptionTypes questionoptiontypes)
         {
             return _questionoptiontypesDal.Add(questionoptiontypes);
         }
 
-         
-         
         public QuestionOptionTypes Update(QuestionOptionTypes questionoptiontypes)
         {
             return _questionoptiontypesDal.Update(questionoptiontypes);
         }
 
-         
-         
         public void Delete(QuestionOptionTypes questionoptiontypes)
         {
             _questionoptiontypesDal.Delete(questionoptiontypes);

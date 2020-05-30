@@ -15,10 +15,10 @@ namespace EgitimPortal.Business.Abstract
 
         void Delete(Questions questions);
 
-        List<Questions> GetListByCatgoryID(int categoryid);
+        List<Questions> GetListByCatgoryId(int categoryid);
 
-        List<Questions> GetListByQuestionLevelID(int questionlevelid);
+        List<Questions> GetListByQuestionLevelId(int questionlevelid);
 
-        List<Questions> GetListByQuestionTypeID(int questiontypeid);
+        List<Questions> GetListByQuestionTypeId(int questiontypeid);
     }
 }

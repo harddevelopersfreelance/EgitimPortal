@@ -17,56 +17,42 @@ namespace EgitimPortal.Business.Concrete.Managers
             _mapper = mapper;
         }
 
-         
-         
         public List<CourseTeachers> GetAll()
         {
             var model = _mapper.Map<List<CourseTeachers>>(_courseteachersDal.GetList());
             return model;
         }
 
-         
-         
         public CourseTeachers GetById(int id)
         {
             var model = _courseteachersDal.Get(p => p.Id == id);
             return model;
         }
 
-         
-         
         public CourseTeachers Add(CourseTeachers courseteachers)
         {
             return _courseteachersDal.Add(courseteachers);
         }
 
-         
-         
         public CourseTeachers Update(CourseTeachers courseteachers)
         {
             return _courseteachersDal.Update(courseteachers);
         }
 
-         
-         
         public void Delete(CourseTeachers courseteachers)
         {
             _courseteachersDal.Delete(courseteachers);
         }
 
-         
-         
         ///Teachers Tablosu ile olan Foreign Key Column TeacherId
-        public List<CourseTeachers> GetListByTeachersID(int teacherid)
+        public List<CourseTeachers> GetListByTeachersId(int teacherid)
         {
             var model = _courseteachersDal.GetList(p => p.TeacherId == teacherid);
             return model;
         }
 
-         
-         
         ///Courses Tablosu ile olan Foreign Key Column CourseId
-        public List<CourseTeachers> GetListByCoursesID(int courseid)
+        public List<CourseTeachers> GetListByCoursesId(int courseid)
         {
             var model = _courseteachersDal.GetList(p => p.CourseId == courseid);
             return model;

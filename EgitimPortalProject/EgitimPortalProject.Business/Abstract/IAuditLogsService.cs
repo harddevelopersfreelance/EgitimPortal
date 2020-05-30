@@ -15,6 +15,6 @@ namespace EgitimPortal.Business.Abstract
 
         void Delete(AuditLogs auditlogs);
 
-        List<AuditLogs> GetListByUserID(int userid);
+        List<AuditLogs> GetListByUserId(int userid);
     }
 }

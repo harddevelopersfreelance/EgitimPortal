@@ -1,10 +1,11 @@
 using EgitimPortalProject.Core.Entities.Abstract;
 
+using EgitimPortalProject.Core.Entities.BaseEntities;
+
 namespace EgitimPortal.Entities.Concrete
 {
-    public class Questions : IEntity
+    public class Questions : AuditableEntityBase, IEntity
     {
-        public virtual int Id { get; set; }
         public virtual int CategoryId { get; set; }
         public virtual int QuestionLevelId { get; set; }
         public virtual int QuestionTypeId { get; set; }

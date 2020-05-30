@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.WebAPI", "EgitimPortalProject.WebAPI\EgitimPortalProject.WebAPI.csproj", "{1C68CC56-FD3C-45EC-BAF5-CAD22C4DA42A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.MvcWebUI", "EgitimPortalProject.MvcWebUI\EgitimPortalProject.MvcWebUI.csproj", "{0C3EAD73-3F55-4237-B590-F5F95EBF0C28}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.Core", "EgitimPortalProject.Core\EgitimPortalProject.Core.csproj", "{90C5C2F4-BC5D-481B-A47A-BA9D17850139}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.Business", "EgitimPortalProject.Business\EgitimPortalProject.Business.csproj", "{EDF37907-7B91-458A-9DA4-B3DF53E5441B}"
@@ -23,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.RepoDB"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.RabbitMQ", "EgitimPortalProject.RabbitMQ\EgitimPortalProject.RabbitMQ.csproj", "{37EA10E8-18B6-4BDF-9F5D-72B90DB9DD6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgitimPortalProject.EfMigrationTools", "EgitimPortalProject.EfMigrationTools\EgitimPortalProject.EfMigrationTools.csproj", "{70ED44CD-0F0A-4ED2-A944-D76B908D68BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgitimPortalProject.EfMigrationTools", "EgitimPortalProject.EfMigrationTools\EgitimPortalProject.EfMigrationTools.csproj", "{70ED44CD-0F0A-4ED2-A944-D76B908D68BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{1C68CC56-FD3C-45EC-BAF5-CAD22C4DA42A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C68CC56-FD3C-45EC-BAF5-CAD22C4DA42A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C68CC56-FD3C-45EC-BAF5-CAD22C4DA42A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C3EAD73-3F55-4237-B590-F5F95EBF0C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C3EAD73-3F55-4237-B590-F5F95EBF0C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C3EAD73-3F55-4237-B590-F5F95EBF0C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C3EAD73-3F55-4237-B590-F5F95EBF0C28}.Release|Any CPU.Build.0 = Release|Any CPU
 		{90C5C2F4-BC5D-481B-A47A-BA9D17850139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{90C5C2F4-BC5D-481B-A47A-BA9D17850139}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90C5C2F4-BC5D-481B-A47A-BA9D17850139}.Release|Any CPU.ActiveCfg = Release|Any CPU
