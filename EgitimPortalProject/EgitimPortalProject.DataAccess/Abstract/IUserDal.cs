@@ -1,13 +1,11 @@
 ﻿using EgitimPortalProject.Core.DataAccess;
 using EgitimPortalProject.Core.Entities.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace EgitimPortalProject.DataAccess.Abstract
 {
-   public interface IUserDal:IEntityRepositoryBase<User>
+    public interface IUserDal : IEntityRepositoryBase<Users>
     {
-        List<Role> GetClaims(User user);
+        List<Roles> GetClaims(Users user);
     }
 }

@@ -2,16 +2,12 @@
 using EgitimPortalProject.Business.ObjectDtos.UserDtos;
 using EgitimPortalProject.Core.Utilities.Security.Jwt;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EgitimPortalProject.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController:Controller
+    public class AuthController : ControllerBase
     {
         private IAuthService _authService;
 
@@ -19,6 +15,7 @@ namespace EgitimPortalProject.WebAPI.Controllers
         {
             _authService = authService;
         }
+
         [HttpPost("loginAuth")]
         public ActionResult Login(UserForLoginDto userForLoginDto)
         {
@@ -36,6 +33,7 @@ namespace EgitimPortalProject.WebAPI.Controllers
 
             return BadRequest((AccessToken)null);
         }
+
         [HttpPost("register")]
         public ActionResult Register(UserForRegisterDto userForRegisterDto)
         {

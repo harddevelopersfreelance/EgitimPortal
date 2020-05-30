@@ -1,23 +1,33 @@
-﻿using EgitimPortalProject.Business.ObjectDtos.UserDtos;
-using EgitimPortalProject.Core.Entities.Concrete;
+﻿using EgitimPortalProject.Core.Entities.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace EgitimPortalProject.Business.Abstract
 {
     public interface IUserService
     {
-     
+        List<Users> GetAll();
+
+        Users GetById(int id);
+
+        Users Update(Users users);
+
+        void Delete(Users users);
+
+        List<Users> GetListByGenderId(int genderid);
+
+        List<Users> GetListByLanguageId(int languageid);
 
         bool IsUserCheck(string email, string userName);
 
-        User UserActivate(Guid activateId);
+        Users UserActivate(Guid activateId);
 
-        User GetUserByInfo(string email, string userName);
-        User GetByMail(string email);
-        List<Role> GetClaims(User user);
-        void Add(User user);
+        Users GetUserByInfo(string email, string userName);
 
+        Users GetByMail(string email);
+
+        List<Roles> GetClaims(Users user);
+
+        Users Add(Users user);
     }
 }

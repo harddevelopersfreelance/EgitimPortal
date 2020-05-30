@@ -3,7 +3,6 @@ using EgitimPortalProject.Core.Entities.Concrete;
 using EgitimPortalProject.DataAccess.Abstract;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace EgitimPortalProject.Business.Concrete.EntityManagers
 {
@@ -15,23 +14,51 @@ namespace EgitimPortalProject.Business.Concrete.EntityManagers
         {
             _userDal = userDal;
         }
-        public void Add(User user)
+
+        public Users Add(Users user)
         {
-            _userDal.Add(user);
+            return _userDal.Add(user);
         }
 
-        public User GetByMail(string email)
-        { 
+        public void Delete(Users users)
+        {
+            _userDal.Delete(users);
+        }
+
+        public List<Users> GetAll()
+        {
+            return _userDal.GetList();
+        }
+
+        public Users GetById(int id)
+        {
+            return _userDal.Get(c => c.Id == id);
+        }
+
+        public Users GetByMail(string email)
+        {
             var data = _userDal.Get((u => u.Email == email));
             return data;
         }
 
-        public List<Role> GetClaims(User user)
+        public List<Roles> GetClaims(Users user)
         {
             return _userDal.GetClaims(user);
         }
 
-        public User GetUserByInfo(string email, string userName)
+        public List<Users> GetListByGenderId(int genderid)
+        {
+            //ling dalda yazılacak
+            throw new NotImplementedException();
+        }
+
+        public List<Users> GetListByLanguageId(int languageid)
+        {
+            //ling dalda yazılacak
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserByInfo(string email, string userName)
         {
             throw new NotImplementedException();
         }
@@ -41,7 +68,12 @@ namespace EgitimPortalProject.Business.Concrete.EntityManagers
             throw new NotImplementedException();
         }
 
-        public User UserActivate(Guid activateId)
+        public Users Update(Users users)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users UserActivate(Guid activateId)
         {
             throw new NotImplementedException();
         }

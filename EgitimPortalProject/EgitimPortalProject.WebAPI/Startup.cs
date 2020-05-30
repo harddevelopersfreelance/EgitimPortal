@@ -1,11 +1,10 @@
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
-using EgitimPortalProject.Business.DependencyResolvers.Autofac;
 using EgitimPortalProject.Core.Utilities.Security.Encyption;
 using EgitimPortalProject.Core.Utilities.Security.Jwt;
+using EgitimPortalProject.EfMigrationTools.EntityFramework.DatabaseContext;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,14 +24,16 @@ namespace EgitimPortalProject.WebAPI
         }
 
         public IConfiguration Configuration { get; }
-       
-        
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            #region  Swagger entegrasyonu
+
+            services.AddDbContext<EgitimPortalDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultDbConnection"]));
+
+            #region Swagger entegrasyonu
+
             services.AddSwaggerGen((options) =>
             {
                 options.SwaggerGeneratorOptions.IgnoreObsoleteActions = true;
@@ -54,16 +55,53 @@ namespace EgitimPortalProject.WebAPI
                         Url = new Uri(Configuration.GetSection("Swagger:SwaggerDoc:License:Url").Value),
                     }
                 });
+
+                #region swagger jwt
+
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "Swagger JWT Authorization header using the Bearer scheme.",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Scheme = "Bearer",
+                    Type = SecuritySchemeType.ApiKey,
+                    BearerFormat = "JWT"
+                });
+
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
+
+                #endregion swagger jwt
+
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 options.IncludeXmlComments(xmlPath);
             });
-            #endregion
 
+            #endregion Swagger entegrasyonu
+
+            #region jwt entegrasyonu
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            services
+                .AddAuthentication(option =>
+                {
+                    option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
                 .AddJwtBearer(options =>
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -74,9 +112,10 @@ namespace EgitimPortalProject.WebAPI
                         ValidIssuer = tokenOptions.Issuer,
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
-
                     };
                 });
+
+            #endregion jwt entegrasyonu
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,22 +125,27 @@ namespace EgitimPortalProject.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-          
 
             #region swagger
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint(url: String.Format(Configuration.GetSection("Swagger:UseSwaggerUI:SwaggerEndpoint").Value, Configuration.GetSection("Swagger:SwaggerName").Value),
                     name: Configuration.GetSection("Swagger:UseSwaggerUI:Name").Value);
                 //c.DocExpansion(DocExpansion.None);
-
             });
 
-            #endregion
+            #endregion swagger
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
